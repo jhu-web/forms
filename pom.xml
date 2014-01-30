@@ -9,7 +9,7 @@
 
 	<name>Test App</name>
 	<description>Sample web app, showing examples of how to handle form data on the client and server side.</description>
-	
+
 	<dependencies>
 		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -20,6 +20,7 @@
 	</dependencies>
 
 	<build>
+		<finalName>forms</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
