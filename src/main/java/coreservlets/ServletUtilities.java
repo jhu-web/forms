@@ -5,7 +5,7 @@ import javax.servlet.http.HttpServletRequest;
 /** Some simple time savers. Static methods. */
 public class ServletUtilities {
   public static String headWithTitle(String title) {
-    return ("<!DOCTYPE html>\n" + "<html>\n" + "<head><title>" + title + "</title></head>\n");
+    return ("<!doctype html>\n" + "<html>\n" + "<head><title>" + title + "</title></head>\n");
   }
 
   /**

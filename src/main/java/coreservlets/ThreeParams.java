@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  * Servlet that prints out the param1, param2, and param3 request parameters. Does not
- * filter out HTML tags.
+ * filter out html tags.
  * <p>
  * From <a href="http://courses.coreservlets.com/Course-Materials/">the coreservlets.com
  * tutorials on servlets, JSP, Struts, JSF, Ajax, GWT, and Java</a>.
@@ -28,26 +28,26 @@ public class ThreeParams
     response.setContentType("text/html");
     PrintWriter out = response.getWriter();
     String title = "Reading Three Request Parameters";
-    String docType = "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0 " + "Transitional//EN\">\n";
-    out.println(docType + "<HTML>\n"
-                + "<HEAD><TITLE>"
+    String docType = "<!doctype html>\n";
+    out.println(docType + "<html>\n"
+                + "<head><title>"
                 + title
-                + "</TITLE></HEAD>\n"
-                + "<BODY BGCOLOR=\"#FDF5E6\">\n"
-                + "<H1 ALIGN=\"CENTER\">"
+                + "</title></head>\n"
+                + "<body style=\"background-color: #FDF5E6\">\n"
+                + "<h1 style=\"text-align: center;\">"
                 + title
-                + "</H1>\n"
-                + "<UL>\n"
-                + "  <LI><B>param1</B>: "
+                + "</h1>\n"
+                + "<ul>\n"
+                + "  <li><b>param1</b>: "
                 + request.getParameter("param1")
-                + "\n"
-                + "  <LI><B>param2</B>: "
+                + "</li>\n"
+                + "  <li><b>param2</b>: "
                 + request.getParameter("param2")
-                + "\n"
-                + "  <LI><B>param3</B>: "
+                + "</li>\n"
+                + "  <li><b>param3</b>: "
                 + request.getParameter("param3")
-                + "\n"
-                + "</UL>\n"
-                + "</BODY></HTML>");
+                + "</li>\n"
+                + "</ul>\n"
+                + "</body></html>");
   }
 }

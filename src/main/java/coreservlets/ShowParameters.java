@@ -28,40 +28,43 @@ public class ShowParameters
     throws ServletException, IOException {
     response.setContentType("text/html");
     PrintWriter out = response.getWriter();
-    String docType = "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0 " + "Transitional//EN\">\n";
+    String docType = "<!doctype html>\n";
     String title = "Reading All Request Parameters";
-    out.println(docType + "<HTML>\n"
-                + "<HEAD><TITLE>"
+    out.println(docType + "<html>\n"
+                + "<head><title>"
                 + title
-                + "</TITLE></HEAD>\n"
-                + "<BODY BGCOLOR=\"#FDF5E6\">\n"
-                + "<H1 ALIGN=CENTER>"
+                + "</title></head>\n"
+                + "<body style=\"background-color: #FDF5E6;\">\n"
+                + "<h1 style=\"text-align: center;\">"
                 + title
-                + "</H1>\n"
-                + "<TABLE BORDER=1 ALIGN=CENTER>\n"
-                + "<TR BGCOLOR=\"#FFAD00\">\n"
-                + "<TH>Parameter Name<TH>Parameter Value(s)");
+                + "</h1>\n"
+                + "<table style=\"border: 1px solid black; margin: 0px auto;\">\n"
+                + "<tr style=\"background-color: #FFAD00\">\n"
+                + "<th>Parameter Name</th><th>Parameter Value(s)</th>");
     Enumeration<String> paramNames = request.getParameterNames();
     while (paramNames.hasMoreElements()) {
       String paramName = paramNames.nextElement();
-      out.print("<TR><TD>" + paramName + "\n<TD>");
+      out.print("<tr><td>" + paramName + "</td>\n<td>");
       String[] paramValues = request.getParameterValues(paramName);
       if (paramValues.length == 1) {
         String paramValue = paramValues[0];
-        if (paramValue.length() == 0)
-          out.println("<I>No Value</I>");
-        else
-          out.println(paramValue);
+        if (paramValue.length() == 0) {
+          out.println("<i>No Value</i>");
+        }
+        else {
+          out.print(paramValue);
+        }
       }
       else {
-        out.println("<UL>");
+        out.println("<ul>");
         for (int i = 0; i < paramValues.length; i++) {
-          out.println("<LI>" + paramValues[i]);
+          out.println("<li>" + paramValues[i]);
         }
-        out.println("</UL>");
+        out.println("</ul>");
       }
+      out.print("</td></tr>");
     }
-    out.println("</TABLE>\n</BODY></HTML>");
+    out.println("</table>\n</body></html>");
   }
 
   @Override

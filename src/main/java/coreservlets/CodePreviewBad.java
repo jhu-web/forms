@@ -28,21 +28,21 @@ public class CodePreviewBad
     response.setContentType("text/html");
     PrintWriter out = response.getWriter();
     String title = "Code Sample";
-    String docType = "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0 " + "Transitional//EN\">\n";
-    out.println(docType + "<HTML>\n"
-                + "<HEAD><TITLE>"
+    String docType = "<!doctype html>\n";
+    out.println(docType + "<html>\n"
+                + "<head><title>"
                 + title
-                + "</TITLE></HEAD>\n"
-                + "<BODY BGCOLOR=\"#FDF5E6\">\n"
-                + "<H1 ALIGN=\"CENTER\">"
+                + "</title></head>\n"
+                + "<body style=\"background-color: #FDF5E6\">\n"
+                + "<h1 style=\"text-align: center;\">"
                 + title
-                + "</H1>\n"
-                + "<PRE>\n"
+                + "</h1>\n"
+                + "<pre>\n"
                 + getCode(request)
-                + "</PRE>\n"
+                + "</pre>\n"
                 + "Now, wasn't that an interesting sample\n"
                 + "of code?\n"
-                + "</BODY></HTML>");
+                + "</body></html>");
   }
 
   protected String getCode(HttpServletRequest request) {
